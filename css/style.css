@@ -1,0 +1,294 @@
+/* Styling for reusable components and for the index.html */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --background: #21C727;
+    --primary: #ffffff;
+    --accent: #E8DEDE;
+    --text-primary: #797575;
+}
+
+body{
+    background-color: var(--background);
+}
+
+/* Header and Navigation bar starts */
+header {
+    background-color: var(--primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    padding: 0.75rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ===== Logo ===== */
+.logo img {
+    display: block;
+    cursor: pointer;
+}
+
+/* ===== Nav Links ===== */
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--background);
+}
+
+/* ===== Buttons ===== */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.action-buttons button {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Inter", sans-serif;
+}
+
+.login-btn {
+    background: transparent;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.login-btn:hover {
+    color: hsl(0, 1%, 33%);
+}
+
+.register-btn {
+    background: var(--background);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.register-btn:hover {
+    background: hsl(110, 79%, 39%);
+}
+
+/* ===== Mobile Menu (Hamburger) ===== */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Header and Navigation bar ends */
+
+/* Main styling starts */
+.hero-section {
+    color: white;
+    padding: 4rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-container {
+    max-width: 700px;
+    width: 100%;
+}
+
+.text-wrapper h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.text-wrapper p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    font-family: "Public Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+/* ===== Search Box ===== */
+.search-field {
+    margin-bottom: 2rem;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.search-box svg {
+    width: 20px;
+    height: 20px;
+    color: #777;
+    margin-right: 0.5rem;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* ===== Buttons ===== */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-lost {
+    background: white;
+    color: #1cc748;
+}
+
+.btn-found {
+    background: #1cc748;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-lost:hover {
+    background: #e7e7e7;
+}
+
+.btn-found:hover {
+    background: #17b33d;
+}
+
+/* Main styling ends */
+
+/* Enhancements and animations
+*/
+.hero-container {
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Hamburger animation when active */
+.menu-toggle.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+/* Responsiveness */
+@media (max-width: 900px) {
+  .nav-links {
+    position: absolute;
+    /* top: 70px; */
+    left: 0;
+    right: 0;
+    background: var(--primary);
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    transform: translateY(-120%);
+    transition: transform 0.4s ease;
+  }
+
+  .nav-links.active {
+    transform: translateY(70%);
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .action-buttons {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-section {
+    padding: 3rem 1rem;
+  }
+
+  .text-wrapper h1 {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
